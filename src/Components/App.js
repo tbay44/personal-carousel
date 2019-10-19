@@ -70,7 +70,7 @@ class App extends React.Component {
     render(){
     return (
         <React.Fragment>
-          <h5 className="Carousel-Page"> Related sponsored items <span>{this.props.sponserCarouselPageNum}/3</span></h5>
+          <h5 className="Carousel-Page"> Sponsored items based on your recent views  <span>{this.props.sponserCarouselPageNum}/3</span></h5>
         <div className="Carousel-Container">
             <button className="back-bttn" onClick={
               (event) => this.props.decrementButton(this.props.sponserCarouselPageNum)
