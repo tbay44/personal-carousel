@@ -38,16 +38,16 @@ const config = {
     ]
 }
 
-const sponserConfig = Object.assign({}, config, {
+const personalConfig = Object.assign({}, config, {
     name:"sponser",
-    entry: path.join(__dirname, 'src', 'Sponser', 'index.js'),
+    entry: path.join(__dirname, 'src', 'Personal', 'index.js'),
     output: {
-        path: path.join(__dirname, 'sponser-dist'),
+        path: path.join(__dirname, 'personal-dist'),
         filename: 'bundle.js'
     }
 })
 
-module.exports = [ sponserConfig ];
+module.exports = [ personalConfig ];
 
 
 
