@@ -6,7 +6,7 @@
     },
     "Ports": [
       {
-        "ContainerPort": "3011"
+        "ContainerPort": "3033"
       }
     ],
     "Logging": "/var/log/nginx"
