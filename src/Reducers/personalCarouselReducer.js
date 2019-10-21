@@ -1,7 +1,10 @@
 import {ADD_PRODUCT} from '../Actions/types';
 
 const initialState = {
-    items : []
+        products: [],
+        pageOne : [],
+        pageTwo : [],
+        pageThree: []
 }
 
 export default function (state = initialState, action){
@@ -9,7 +12,10 @@ export default function (state = initialState, action){
         case ADD_PRODUCT:
             return {
                 ...state,
-                items: action.payload
+                products: action.payload,
+                pageOne: action.pageOne,
+                pageTwo: action.pageTwo,
+                pageThree: action.pageThree
             }
         default:
             return state;

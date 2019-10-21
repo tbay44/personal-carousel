@@ -1,6 +1,6 @@
 import React from "react";
 import Product from '../Components/Product'
-import { fetchProducts } from '../Actions/productsActions';
+import { addPersonal } from '../Actions/productsActions';
 import { incrementButton, decrementButton, initializeButton } from '../Actions/carouselActions';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,12 +12,12 @@ class App extends React.Component {
     
     componentDidMount() {
 
-        window.uniqueId = 0
-        this.props.fetchProducts(window.uniqueId)
+        window.uniqueId = 5
+        this.props.addPersonal(window.uniqueId, this.props.currentPersonalState)
         this.props.initializeButton()
 
         window.addEventListener("uniqueId", (event) => {
-          this.props.fetchProducts(window.uniqueId)
+          this.props.addPersonal(window.uniqueId, this.props.currentPersonalState)
           this.props.initializeButton()
         }
         )
@@ -70,7 +70,7 @@ class App extends React.Component {
     render(){
     return (
         <React.Fragment>
-          <h5 className="Carousel-Page"> Related sponsored items <span>{this.props.sponserCarouselPageNum}/3</span></h5>
+          <h5 className="Carousel-Page"> Sponsored items based on your recent views  <span>{this.props.sponserCarouselPageNum}/3</span></h5>
         <div className="Carousel-Container">
             <button className="back-bttn" onClick={
               (event) => this.props.decrementButton(this.props.sponserCarouselPageNum)
@@ -91,16 +91,17 @@ class App extends React.Component {
 
 
 const mapStateToProps = state => ({
-  pageOne: state.posts.pageOne,
-  pageTwo: state.posts.pageTwo,
-  pageThree: state.posts.pageThree,
+  pageOne: state.personalCarousel.pageOne,
+  pageTwo: state.personalCarousel.pageTwo,
+  pageThree: state.personalCarousel.pageThree,
   sponserCarouselPageNum: state.sponserCarouselPageNum.page,
+  currentPersonalState: state.personalCarousel.products,
   currentProductId: state.uniqueId.id
 })
 
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchProducts: (inputId) => dispatch(fetchProducts(inputId)), 
+  addPersonal: (inputId, currentState) => dispatch(addPersonal(inputId, currentState)), 
   incrementButton: (inputId) => dispatch(incrementButton(inputId)),
   decrementButton: (inputId) => dispatch(decrementButton(inputId)),
   initializeButton: () => dispatch(initializeButton())

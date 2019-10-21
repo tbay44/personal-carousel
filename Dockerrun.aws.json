@@ -1,12 +1,12 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "xenolithes/sponser-carousel",
+      "Name": "xenolithes/personal-carousel",
       "Update": "true"
     },
     "Ports": [
       {
-        "ContainerPort": "3009"
+        "ContainerPort": "3011"
       }
     ],
     "Logging": "/var/log/nginx"
