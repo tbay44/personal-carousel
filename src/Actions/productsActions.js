@@ -1,7 +1,7 @@
 import {ADD_PRODUCT} from './types';
     export function addPersonal(inputId, currentState = []){ 
         return function (dispatch){
-            return fetch('/api/add?id='+inputId)
+            return fetch('http://personal-carousel.us-east-2.elasticbeanstalk.com/api/add?id='+inputId)
             .then(res => {
             return res.json()})
             .then(products =>{
