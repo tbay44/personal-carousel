@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path')
 const app = express();
+const cors = require('cors')
 const port = 3033;
 const connection = require("./database/db");
 const PERSONAL_DIST_DIR = path.join(__dirname, '../personal-dist');
@@ -12,6 +13,7 @@ const mockResponse = {
 };
 
 // app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
 app.use(bodyParser.json())
 app.use(express.static(PERSONAL_DIST_DIR));
 
